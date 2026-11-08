@@ -1,5 +1,7 @@
 # React 전환 검증
 
+> Latest validation2026-11-08: user Q&A5/5 PASS; local build and project-path routing passed; live private REST403 confirmed. Manual workflow prepared only; no deployment. See [deployment preparation](DEPLOYMENT_PREPARATION.md) for current limitations. Earlier dated records are historical.
+
 > Latest 2026-11-08 01:34:33 KST: private body/answer REST403 and SDK denied; public metadata masked. Earlier200 observations are historical. Local reservation candidate not published. See [review](SECURITY_REVIEW_20261108.md).
 
 > 최신 운영 확인(2026-11-08 01:22 KST): 사용자 게시 완료 알림 후에도 비공개Q&A본문/답변의 무인증 REST가200 및내용필드를반환했다. NOTICE7개/Q&A목록2개·Auth초기화·가입중복확인읽기는정상. 실계정로그인/가입/쓰기권한은미검증이며배포보류를유지한다. REACT_MIGRATION.md에실행증거와미검증범위를추가했다.

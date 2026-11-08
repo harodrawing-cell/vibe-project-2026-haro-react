@@ -321,3 +321,28 @@ User logged in as member B and confirmed the body of member A private Q&A questi
 범위 밖의 추가 확인 사항은 별도로 유지한다: 삭제 후 qnaList/qnaDetails/qnaAnswers의 고아 문서 없음에 대한 직접 확인, 답변 등록 이후 B의 답변 접근 재검사, 신규 회원가입, 관리자 권한 정당성·예약문서 오염 감사, Console 전체 규칙과 로컬 후보 비교, AUTH-PRIVACY-01 및 기존 실제 iPhone/디자인 검증. 이 사항은 이번 5개 PASS의 실패를 의미하지 않으며 전체 운영 보안·배포 준비 완료로 확대 해석하지 않는다.
 
 이번 변경은 document/REACT_MIGRATION.md와 task-history/task.md에 기록 추가만 수행했다. 기능 코드 수정·추가 테스트 실행·운영 데이터 및 계정 변경·규칙 게시·GitHub Push·React 배포는 하지 않았다.
+
+
+## 2026-11-08 Final validation and manual Pages preparation
+
+User-executed Q&A5 checks: all PASS, no errors, completion date2026-11-08 (B private denial; A edit/save/reload; M answer create/edit/answered; M answer removal/waiting; A test deletion/list update).
+
+Local build/check-dist passed; relative and actual Pages mount build tests each verified175 copied images and7 direct hash routes/reloads. Browser52 width/route states and10 checks passed, no overflow/page errors/broken assets. Main section geometry matched at1920/1024/768/390; earlier subpage differences and real iPhone remain unresolved. npm test5/5 passed. Dev5173/react.html and preview4173/ are running. Initial connection-refused checks were rerun successfully after starting servers.
+
+New manual-only .github/workflows/deploy.yml: default deploy:false, Node26/npm ci/test/build, explicit project base, output validation and Pages artifact; deploy:true gated to exact React repository/main with domain/URL check. Added scripts/check-dist.mjs and parameterized tests/react-build.cjs mount; app/legacy/Firebase code unchanged. Updated README.react.md.
+
+Read-only live Firebase recheck at2026-11-08 09:24:54KST: NOTICE8/Q&A4, public detail OK, private metadata masked, body/answer SDK denied and REST403. Signup success, admin roster audit, Console rules-source equality and Firebase allowed domains remain unverified. GitHub API/Pages settings/domain inaccessible; distinct React and original HTML origins and local main confirmed.
+
+See [full preparation report](DEPLOYMENT_PREPARATION.md) for expected test URL, approval-only remote steps, remaining checks and original site impact. Final dist restored to default relative base for root preview. No Push, commit, Pages/DNS/custom domain changes, remote workflow execution, production data/account/rules changes or actual deployment.
+
+
+## 2026-11-08 Test Pages deployment approval checkpoint
+
+Read-only remote main verified at ee8470c9f8cf72544735f79e3a5fd9c633be9a5e, matching local HEAD. React and original HTML remotes are separate. GitHub Desktop embedded git located; no global configuration changed. Unauthenticated Pages API returned404 for both repositories; current domain/source still unverified. Project-base production build and output credential-pattern/path scan passed again. Prior route/responsive/Q&A PASS results preserved without redundant implementation. User reports actual iPhone issue review completed; detailed per-item outcomes not supplied.
+
+See [concrete approval scope](TEST_DEPLOYMENT_APPROVAL.md) for9 commit files, React-only main push/Pages setup/manual Actions deployment, protected mandaco.co.kr boundary, postdeploy tests and remaining verification. No commit/push/Pages setting changes/actual deployment or production account/data changes performed. Approval requested before those actions as explicitly required by the user.
+
+
+## 2026-11-08 Actual test-site publishing: approval scope refreshed
+
+Reconfirmed fetch/push origin points only to harodrawing-cell/vibe-project-2026-haro-react. Nine changed/new preparation files; no staged files. [Approval document](TEST_DEPLOYMENT_APPROVAL.md) now includes exact allowlisted git commands, excluded artifacts/secrets/Firebase/original sources, Pages Source UI instructions, deploy:true dispatch and run monitoring commands, and gh/auth limitations. Manual workflow already supports actual deployment, not only artifact creation. User again explicitly requires approval before commit/push; no remote mutations or deployment performed. Existing HTML/mandaco.co.kr/Firebase unchanged.

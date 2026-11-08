@@ -79,6 +79,6 @@ node scripts/compare-react.cjs
 
 ## 배포 준비
 
-산출물은 dist 전체입니다. 별도 테스트 사이트에 업로드해 도메인, 인증, 권한, 실기기 검증 후 운영 전환을 결정합니다. 현재 원격 origin은 기존 운영 저장소를 가리키므로 자동 push/배포하지 않습니다. GitHub Actions·Pages·Firebase 배포 설정은 교체하지 않았습니다.
+산출물은 dist 전체입니다. 현재 로컬 origin은 별도 React 저장소 `harodrawing-cell/vibe-project-2026-haro-react`이며, 기존 HTML 저장소와 분리되어 있습니다. `.github/workflows/deploy.yml`은 수동 실행만 허용하고 기본값은 배포 없이 artifact 준비입니다. Push·Pages 설정·실제 배포는 승인 전 실행하지 않습니다. 로컬 base는 `./`, Actions 빌드는 `/vibe-project-2026-haro-react/`를 사용합니다. 예상 테스트 주소와 미확인 설정·승인 후 절차는 [배포 준비 보고서](document/DEPLOYMENT_PREPARATION.md)를 확인하세요.
 
 이 환경의 npm 인증서 오류는 실행 세션에서 `NODE_USE_SYSTEM_CA=1`로 Windows 인증서를 사용해 해결했습니다. SSL 검증 해제나 시스템 PATH/전역 npm 설정 변경은 하지 않았습니다. npm audit의 grpc 간접 의존성 경고는 호환 패치 범위 override로 해결했으며 강제 Firebase 다운그레이드는 하지 않았습니다.
