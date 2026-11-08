@@ -5,9 +5,10 @@ const { createHash } = require('node:crypto');
 // Git checks text out as LF on Linux; the preserved Windows baseline used CRLF.
 // Accept only that line-ending conversion. Binary assets remain byte-exact.
 const sha256 = bytes => createHash('sha256').update(bytes).digest('hex');
+const isTextFile = file => /\.(?:html|css|js|json|rules|svg)$/i.test(file);
 function matchesOriginal(file, bytes, expected) {
   if (sha256(bytes) === expected) return true;
-  return /\.(?:html|css|js|json|rules)$/i.test(file)
+  return isTextFile(file)
     && sha256(Buffer.from(bytes.toString('utf8').replace(/\r\n/g, '\n').replace(/\n/g, '\r\n'))) === expected;
 }
 const normalizedText = bytes => bytes.toString('utf8').replace(/\r\n/g, '\n');
@@ -24,7 +25,12 @@ test('original frontend/assets/config remain unchanged; authorized Q&A rules hav
       }
       const notice=source=>source.match(/^    match \/notices\/\{id\} \{[\s\S]*?^    \}/m)?.[0];
       assert.ok(notice(before));assert.equal(notice(after),notice(before),'NOTICE rules preserved');
-    }else assert.ok(matchesOriginal(file,readFileSync(file),expected), file);
+    }else {
+      const bytes = readFileSync(file);
+      assert.ok(matchesOriginal(file,bytes,expected), file);
+      // Exercise Linux text checkout even when this test runs on Windows.
+      if (isTextFile(file)) assert.ok(matchesOriginal(file,Buffer.from(normalizedText(bytes)),expected), `${file}: LF checkout`);
+    }
   }
 });
 test('React cart preserves quantities, unavailable prices and corrupt storage without overwriting it', async () => {

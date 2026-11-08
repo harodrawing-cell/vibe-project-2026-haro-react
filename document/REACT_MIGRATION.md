@@ -365,3 +365,15 @@ Retained minimal tests/react-services.test.js text-line-ending handling; binary 
 ## 2026-11-08 Approved four-file CI line-ending fix publication
 
 User explicitly authorized commit/push of exactly tests/react-services.test.js, document/ACTIONS_RUN1_DIAGNOSIS.md, document/REACT_MIGRATION.md and task-history/task.md to the separate React repository main. Before publication, origin and branch were rechecked and local/remote HEAD both matched b9102ff7cc141ea65e7a97594a7475505d6aa6d1; index was empty and only those four files changed. No force push, original HTML/domain/Firebase changes or workflow dispatch is authorized by this publication step. Actual commit ID/push result will be reported after execution; this entry records approval and preflight only.
+
+
+## 2026-11-08 Actions run2 SVG hash fix (approval pending)
+
+User reported behance-white.svg assertion failure at matchesOriginal, not an existence check. File exists, is tracked with exact case in remote main2354677, is not ignored and is byte-identical to sibling original. Git LF versus baseline CRLF hashes differ only by line endings. Previous fix and LF simulation omitted textual SVG. Added svg text classification and in-test LF checks for all protected text files; no baseline/image/app changes. All175 required images tracked/existing with exact-case paths. Tested71 actual Git text blobs including17 SVGs:5/5 PASS; npm test5/5 then npm run build and check-dist succeeded. Actual Linux Actions rerun remains pending.
+
+[Full run2 diagnosis](ACTIONS_RUN2_DIAGNOSIS.md). Four-file scope: tests/react-services.test.js plus run2 diagnosis/migration/history docs. No commit/push/remote rerun, Firebase data/rules, original HTML/domain changes.
+
+
+## 2026-11-08 Approved four-file SVG LF correction publication
+
+User explicitly approved commit/push of tests/react-services.test.js, document/ACTIONS_RUN2_DIAGNOSIS.md, document/REACT_MIGRATION.md and task-history/task.md only. Preflight verified React origin/main, clean index and local/remote HEAD23546777952e661d62f31584650b17386f7b7710. This records authorization and preflight; actual commit/push outcome will be reported after execution. No original HTML/React app/image/Firebase/domain changes or workflow dispatch are included.
