@@ -5,7 +5,7 @@ import { cpSync, renameSync } from 'node:fs';
 // Only the build output gets a new index.html. The original entry is untouched.
 export default defineConfig({
   base: './',
-  publicDir: false,
+  publicDir: 'public',
   plugins: [react(), {
     name: 'haro-static-assets',
     closeBundle() {
