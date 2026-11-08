@@ -346,3 +346,22 @@ See [concrete approval scope](TEST_DEPLOYMENT_APPROVAL.md) for9 commit files, Re
 ## 2026-11-08 Actual test-site publishing: approval scope refreshed
 
 Reconfirmed fetch/push origin points only to harodrawing-cell/vibe-project-2026-haro-react. Nine changed/new preparation files; no staged files. [Approval document](TEST_DEPLOYMENT_APPROVAL.md) now includes exact allowlisted git commands, excluded artifacts/secrets/Firebase/original sources, Pages Source UI instructions, deploy:true dispatch and run monitoring commands, and gh/auth limitations. Manual workflow already supports actual deployment, not only artifact creation. User again explicitly requires approval before commit/push; no remote mutations or deployment performed. Existing HTML/mandaco.co.kr/Firebase unchanged.
+
+
+## 2026-11-08 Actions run1 failure diagnosis (no push)
+
+GitHub run42432041762 / commit b9102ff: checkout/setup-node/npm ci success; npm test failure; Vite build/artifact/deploy skipped. Raw logs require authentication (403); requested user test log. Independently reproduced Windows-CRLF baseline versus Git-LF hash mismatch at index.html. Minimal test-only fix accepts line-ending conversion for text while retaining original hashes and byte-exact binaries; rules comparison normalizes newlines. Windows5/5 and LF-simulated5/5 pass; tampered text/binary conversions rejected. Project-base build and check-dist pass. Static import filename/case audit clean. Exact remote test error still awaiting raw log confirmation; no claim that remote rerun succeeded.
+
+[Detailed evidence and limits](ACTIONS_RUN1_DIAGNOSIS.md). Changed tests/react-services.test.js and3 documentation files only. No commit/push/remote rerun, production HTML/domain/Firebase changes.
+
+
+## 2026-11-08 Actions hash failure confirmed; original HTML preserved
+
+User confirmed run1 failed at index.html SHA assertion in react-services test. Current index.html is byte-identical to sibling original HTML project and matches the unchanged CRLF baseline (600 CRLF). HEAD/HEAD^/ee8470c/preconversion7083837/last-HTML-change3cb8bd5 all have identical LF content, matching current content after line-ending normalization. Cause: byte-hash comparison across Git LF and Windows CRLF, not stale content baseline or unintended React edits. No baseline hash replacement or protection-test removal.
+
+Retained minimal tests/react-services.test.js text-line-ending handling; binary byte checks and content-tampering rejection preserved. Executed npm test5/5 then npm run build success, followed by LF simulation5/5 and check-dist success. Actual Linux rerun remains pending (local WSL unavailable). [Updated diagnosis](ACTIONS_RUN1_DIAGNOSIS.md). Four-file change scope: test plus diagnosis/migration/history docs. No commit/push/redeploy or original HTML/Firebase/domain changes.
+
+
+## 2026-11-08 Approved four-file CI line-ending fix publication
+
+User explicitly authorized commit/push of exactly tests/react-services.test.js, document/ACTIONS_RUN1_DIAGNOSIS.md, document/REACT_MIGRATION.md and task-history/task.md to the separate React repository main. Before publication, origin and branch were rechecked and local/remote HEAD both matched b9102ff7cc141ea65e7a97594a7475505d6aa6d1; index was empty and only those four files changed. No force push, original HTML/domain/Firebase changes or workflow dispatch is authorized by this publication step. Actual commit ID/push result will be reported after execution; this entry records approval and preflight only.

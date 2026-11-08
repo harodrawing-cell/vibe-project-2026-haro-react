@@ -2,20 +2,29 @@ const test = require('node:test');
 const assert = require('node:assert/strict');
 const { readFileSync } = require('node:fs');
 const { createHash } = require('node:crypto');
+// Git checks text out as LF on Linux; the preserved Windows baseline used CRLF.
+// Accept only that line-ending conversion. Binary assets remain byte-exact.
+const sha256 = bytes => createHash('sha256').update(bytes).digest('hex');
+function matchesOriginal(file, bytes, expected) {
+  if (sha256(bytes) === expected) return true;
+  return /\.(?:html|css|js|json|rules)$/i.test(file)
+    && sha256(Buffer.from(bytes.toString('utf8').replace(/\r\n/g, '\n').replace(/\n/g, '\r\n'))) === expected;
+}
+const normalizedText = bytes => bytes.toString('utf8').replace(/\r\n/g, '\n');
 test('original frontend/assets/config remain unchanged; authorized Q&A rules have a verified backup', () => {
   const hashes = JSON.parse(readFileSync('document/react-original-hashes.json', 'utf8'));
   for (const [file, expected] of Object.entries(hashes)) {
     if(file==='firebase/firestore.rules'){
       const backup=readFileSync('firebase/backups/20261108/local-before.rules');
-      assert.equal(createHash('sha256').update(backup).digest('hex'),expected,'original rules backup');
-      const before=backup.toString('utf8'),after=readFileSync(file,'utf8');
+      assert.ok(matchesOriginal(file,backup,expected),'original rules backup');
+      const before=normalizedText(backup),after=normalizedText(readFileSync(file));
       for(const collection of ['users','admins']){
         const block=source=>source.match(new RegExp('^    match /'+collection+'/\\{[^}]+\\} \\{[\\s\\S]*?^    \\}','m'))?.[0];
         assert.ok(block(before));assert.equal(block(after),block(before),`${collection} authorization preserved`);
       }
       const notice=source=>source.match(/^    match \/notices\/\{id\} \{[\s\S]*?^    \}/m)?.[0];
       assert.ok(notice(before));assert.equal(notice(after),notice(before),'NOTICE rules preserved');
-    }else assert.equal(createHash('sha256').update(readFileSync(file)).digest('hex'), expected, file);
+    }else assert.ok(matchesOriginal(file,readFileSync(file),expected), file);
   }
 });
 test('React cart preserves quantities, unavailable prices and corrupt storage without overwriting it', async () => {
