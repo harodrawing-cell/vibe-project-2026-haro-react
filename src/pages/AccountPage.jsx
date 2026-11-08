@@ -158,8 +158,8 @@ export default function AccountPage({ signup = false }) {
                 <div className="account-recovery" tabIndex={-1}>
                   <p>
                     가입 시 사용한 이메일로{' '}
-                    <a href="mailto:harodrowing@gmail.com">
-                      harodrowing@gmail.com
+                    <a href="mailto:harodrawing@gmail.com">
+                      harodrawing@gmail.com
                     </a>
                     에 아이디와 비밀번호 복구 요청을 보내 주세요.
                   </p>
@@ -173,6 +173,31 @@ export default function AccountPage({ signup = false }) {
           )}
           <section className={signup ? 'account-signup' : undefined}>
             <h2>{signup ? '회원가입' : '로그인'}</h2>
+            <aside className="account-trust" aria-label="사이트 운영 안내">
+              <p>
+                이 페이지는 만다꼬에서 운영하는 HARO 웹사이트의 React 테스트
+                버전입니다.
+              </p>
+              <p>운영 브랜드: 만다꼬(MANDACO) · 사이트명: HARO</p>
+              <p>
+                공식 사이트:{' '}
+                <a
+                  href="https://www.mandaco.co.kr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  www.mandaco.co.kr
+                </a>
+                {' · '}문의:{' '}
+                <a href="mailto:harodrawing@gmail.com">harodrawing@gmail.com</a>
+              </p>
+              {signup && (
+                <p>
+                  가입 시 이름·아이디·이메일·비밀번호를 입력합니다. 개인정보
+                  처리에 관한 사항은 위 문의처로 확인해 주세요.
+                </p>
+              )}
+            </aside>
             <form
               id={signup ? 'signup-form' : 'login-form'}
               onSubmit={submit}

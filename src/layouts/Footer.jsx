@@ -18,9 +18,9 @@ export default function Footer() {
           </p>
           <a
             className={'site-footer__email'}
-            href={'mailto:harodrowing@gmail.com'}
+            href={'mailto:harodrawing@gmail.com'}
           >
-            {'\n            harodrowing@gmail.com\n          '}
+            {'\n            harodrawing@gmail.com\n          '}
           </a>
         </div>
         {'\n\n        '}
