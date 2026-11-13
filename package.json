@@ -6,11 +6,12 @@
     "dev": "vite --host 127.0.0.1 --port 5173 --strictPort --open /react.html",
     "build": "vite build",
     "preview": "vite preview --host 127.0.0.1 --port 4173 --strictPort",
-    "test": "node --test tests/react-services.test.js",
+    "test": "node --test tests/react-services.test.js tests/goods-catalog.test.cjs",
     "test:browser": "node tests/react-browser.cjs",
     "test:visual": "node scripts/compare-react.cjs",
     "test:build": "node tests/react-build.cjs",
-    "format": "prettier --write src vite.config.mjs"
+    "format": "prettier --write src vite.config.mjs",
+    "test:goods:browser": "node tests/goods-browser.cjs"
   },
   "dependencies": {
     "firebase": "12.6.0",

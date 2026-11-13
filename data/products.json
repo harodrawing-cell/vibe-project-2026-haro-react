@@ -8,7 +8,7 @@
     {
       "id": "lazy-sticker",
       "name": "귀찮니스트 (79x79mm) _ sticker",
-      "price": null,
+      "price": 3150,
       "images": [
         "images/img-dt/img_14_item-1.png"
       ],
@@ -22,13 +22,13 @@
       "specifications": [
         "규격은 기존 GOODS 카드 표기를 기준으로 합니다."
       ],
-      "priceSource": "가격 자료 미제공",
+      "priceSource": "사용자 확정 판매가 (3,150원)",
       "sourceUrl": null
     },
     {
       "id": "narcissism-sticker",
       "name": "나르니시즘 (79x79mm) _ sticker",
-      "price": null,
+      "price": 3150,
       "images": [
         "images/img-dt/img_15_item-2.png"
       ],
@@ -42,13 +42,13 @@
       "specifications": [
         "규격은 기존 GOODS 카드 표기를 기준으로 합니다."
       ],
-      "priceSource": "가격 자료 미제공",
+      "priceSource": "사용자 확정 판매가 (3,150원)",
       "sourceUrl": null
     },
     {
       "id": "ramen-sticker",
       "name": "라면인건가요 (79x79mm) _ sticker",
-      "price": null,
+      "price": 3150,
       "images": [
         "images/img-dt/img_16_item-3.png"
       ],
@@ -62,13 +62,13 @@
       "specifications": [
         "규격은 기존 GOODS 카드 표기를 기준으로 합니다."
       ],
-      "priceSource": "가격 자료 미제공",
+      "priceSource": "사용자 확정 판매가 (3,150원)",
       "sourceUrl": null
     },
     {
       "id": "beam-sticker",
       "name": "받아라 빔 (79x79mm) _ sticker",
-      "price": null,
+      "price": 3150,
       "images": [
         "images/img-dt/img_17_item-4.png"
       ],
@@ -82,13 +82,13 @@
       "specifications": [
         "규격은 기존 GOODS 카드 표기를 기준으로 합니다."
       ],
-      "priceSource": "가격 자료 미제공",
+      "priceSource": "사용자 확정 판매가 (3,150원)",
       "sourceUrl": null
     },
     {
       "id": "relax-sticker",
       "name": "이런 여유 좋고 (79x79mm) _ sticker",
-      "price": null,
+      "price": 3150,
       "images": [
         "images/img-dt/img_18_item-5.png"
       ],
@@ -102,13 +102,13 @@
       "specifications": [
         "규격은 기존 GOODS 카드 표기를 기준으로 합니다."
       ],
-      "priceSource": "가격 자료 미제공",
+      "priceSource": "사용자 확정 판매가 (3,150원)",
       "sourceUrl": null
     },
     {
       "id": "matatabi-sticker",
       "name": "Matatabi Tea (79x79mm) _ sticker",
-      "price": null,
+      "price": 3150,
       "images": [
         "images/img-dt/img_19_item-6.png"
       ],
@@ -118,11 +118,11 @@
           "label": "기본 / 79 × 79 mm"
         }
       ],
-      "description": "메인 GOODS에 소개된 하로 상품입니다. 제공된 이미지와 기본 규격을 확인해 주세요.",
+      "description": "머그컵 일러스트가 인쇄된 리무버블 스티커입니다. 실제 머그컵이 아닌 스티커 상품입니다.",
       "specifications": [
         "규격은 기존 GOODS 카드 표기를 기준으로 합니다."
       ],
-      "priceSource": "가격 자료 미제공",
+      "priceSource": "사용자 확정 판매가 (3,150원)",
       "sourceUrl": null
     },
     {
@@ -151,22 +151,28 @@
     },
     {
       "id": "sticky-cleaner",
-      "name": "Sticky Cleaner (3.3 × 3.3mm)",
-      "price": null,
+      "name": "체크_하로 손거울",
+      "price": 4800,
       "images": [
-        "images/img-dt/img_21_item-8.png"
+        "images/used/haro_check_compact_mirror_front.png",
+        "images/used/haro_check_compact_mirror_front_01.jpg",
+        "images/used/haro_check_compact_mirror_front_02.jpg",
+        "images/used/haro_check_compact_mirror_front_03.png",
+        "images/used/haro_check_compact_mirror_front_04.png"
       ],
       "options": [
         {
           "id": "default",
-          "label": "기본 / 3.3 × 3.3 mm"
+          "label": "정사각형 / 7.2 × 7.2cm"
         }
       ],
-      "description": "메인 GOODS에 소개된 하로 상품입니다. 제공된 이미지와 기본 규격을 확인해 주세요.",
+      "description": "하로 캐릭터가 그려진 휴대용 손거울 (정사각형)입니다. Compact Mirror.",
       "specifications": [
-        "규격은 기존 GOODS 카드 표기를 기준으로 합니다."
+        "상품 종류: 휴대용 손거울 (정사각형) / Compact Mirror",
+        "규격: 7.2 × 7.2cm",
+        "판매 상태: 판매 중"
       ],
-      "priceSource": "가격 자료 미제공",
+      "priceSource": "사용자 확정 판매가 (4,800원)",
       "sourceUrl": null
     }
   ]

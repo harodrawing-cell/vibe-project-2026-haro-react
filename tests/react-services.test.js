@@ -25,6 +25,10 @@ test('original frontend/assets/config remain unchanged; authorized Q&A rules hav
       }
       const notice=source=>source.match(/^    match \/notices\/\{id\} \{[\s\S]*?^    \}/m)?.[0];
       assert.ok(notice(before));assert.equal(notice(after),notice(before),'NOTICE rules preserved');
+    }else if(file==='data/products.json'){
+      const original=readFileSync('tests/fixtures/goods-original-catalog.json');
+      assert.ok(matchesOriginal(file,original,expected),'historical product fixture hash');
+      assert.deepEqual(JSON.parse(readFileSync(file,'utf8')),require('./helpers/goods-expected.cjs').catalog);
     }else {
       const bytes = readFileSync(file);
       assert.ok(matchesOriginal(file,bytes,expected), file);
@@ -43,7 +47,8 @@ test('React cart preserves quantities, unavailable prices and corrupt storage wi
   await r.add('haro-note', option, 1);
   assert.equal((await r.getCart()).quantity, 3);
   assert.equal((await r.getCart()).total, 16500);
-  await assert.rejects(r.add('lazy-sticker', 'default', 1), /가격/);
+  const unavailable = createRepository({ getStorage: () => ({ getItem: () => null }), loadCatalog: async () => ({ ...catalog, products: catalog.products.map(p => p.id === 'lazy-sticker' ? { ...p, price: null } : p) }) });
+  await assert.rejects(unavailable.add('lazy-sticker', 'default', 1), /가격/);
   await assert.rejects(r.setQuantity('haro-note', option, 100), /1~99/);
   memory.set(r.STORAGE_KEY, 'broken');
   await assert.rejects(r.getCart(), /원본 데이터/);

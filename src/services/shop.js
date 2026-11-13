@@ -165,6 +165,8 @@ const api = (() => {
       const shipping = items.some((item) => item.available)
         ? data.shipping.fee
         : 0;
+      if (items.some(item => item.subtotal !== null && !Number.isSafeInteger(item.subtotal)) || !Number.isSafeInteger(subtotal + shipping))
+        throw new Error('상품 금액이 계산 범위를 초과했습니다. 상품 가격과 수량을 확인해 주세요.');
       return {
         items,
         quantity,
